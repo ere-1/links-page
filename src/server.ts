@@ -1,5 +1,6 @@
 import app from "./app";
+const PORT: Number = 5000;
 
-app.listen(3000, () => {
-  console.log("working");
+app.listen(PORT, () => {
+  console.log(`server working at http://localhost:${PORT}`);
 });
