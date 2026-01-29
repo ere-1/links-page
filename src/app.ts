@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import postRoute from "./routes/postRoute";
 import redirectRoute from "./routes/redirectRoute";
 import api from "./routes/api";
@@ -11,11 +11,11 @@ const app = express();
 
 // middlewares
 app.use(express.json());
-app.set('trust proxy', 1);
 app.use(cookieParser());
 app.set("view engine", "ejs");
-app.set("views", "../views");
+app.set("views", path.join(__dirname, "..", "views"));
 app.use(express.static(path.join(__dirname, "..", "public")));
+
 
 
 // routes
