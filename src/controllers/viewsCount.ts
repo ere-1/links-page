@@ -14,7 +14,13 @@ let viewsCount = async (req: Request,res: Response,next: NextFunction) => {
         ).then((result) => {
             console.log(result)
         })
-        res.cookie('hasViewed','true')
+      res.cookie('hasViewed', 'true', {
+    maxAge: 604800000, // 1 week in milliseconds
+    httpOnly: true,    // Protects against XSS
+    secure: true,      // Essential for Vercel/HTTPS
+    sameSite: 'lax',   // Good balance for security and functionality
+    path: '/'          // Ensures the cookie is available across your whole site
+});
         res.render('landpage')
     } catch (err) {
         console.log('err: ', err)

@@ -11,6 +11,7 @@ const app = express();
 
 // middlewares
 app.use(express.json());
+app.set('trust proxy', 1);
 app.use(cookieParser());
 app.set("view engine", "ejs");
 app.set("views", "../views");
