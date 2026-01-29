@@ -4,9 +4,11 @@ import redirectRoute from "./routes/redirectRoute";
 import api from "./routes/api";
 import cookieParser from 'cookie-parser';
 import path from "path";
+import connectDB from "./config/db";
 
 
 const app = express();
+connectDB();
 
 
 // middlewares
