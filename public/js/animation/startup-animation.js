@@ -1,7 +1,7 @@
 
 
 const loadingAnimate = () => {
-    const loadingContainer =document.getElementById('loading');
+    const loadingContainer = document.getElementById('loading');
     loadingContainer.addEventListener("click", () => {
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     const audio = document.querySelector("audio");
@@ -63,6 +63,10 @@ const loadingAnimate = () => {
       duration: 0.6,
     });
   audio.play();
+
+  // loadingContainer.style.display = "none";
+})
+
           document.addEventListener('DOMContentLoaded', () => {
             new TypeIt("#typing", {
                 strings: "Free Palestine",
@@ -71,8 +75,6 @@ const loadingAnimate = () => {
             }).go()
                 .pause(2000);
         });
-  // loadingContainer.style.display = "none";
-})
 };
 
 export default loadingAnimate;
