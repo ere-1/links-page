@@ -1,3 +1,4 @@
+import connectDB from "../config/db";
 import view from "../models/views";
 import {Request , Response , NextFunction} from 'express';
 let viewsCount = async (req: Request,res: Response,next: NextFunction) => {
@@ -5,6 +6,7 @@ let viewsCount = async (req: Request,res: Response,next: NextFunction) => {
         return res.render('landpage');
     }
     try {
+        await connectDB();
         await view.findOneAndUpdate(
             {name: 'website'},
             {$inc: {count: 1}},
