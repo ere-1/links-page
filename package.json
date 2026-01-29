@@ -11,9 +11,13 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
   "dependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
-    "gsap": "^3.14.2"
+    "gsap": "^3.14.2",
+    "mongoose": "^9.1.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

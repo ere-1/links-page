@@ -1,8 +1,8 @@
 import Router, { Request, Response } from "express";
+import viewsCount from "./../controllers/viewsCount";
+
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.render("landpage");
-});
+router.get("/", viewsCount);
 
 export default router;

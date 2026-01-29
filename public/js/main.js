@@ -4,7 +4,7 @@ const playBtn = document.querySelector(".control button:nth-child(2) i");
 const loadingContainer = document.getElementById("loading");
 const information = document.getElementById("information");
 const title = document.getElementById("particle");
-
+const viewsNumber = document.getElementById('viewsNumber');
 loadingContainer.addEventListener("click", () => {
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -114,3 +114,18 @@ audio.addEventListener("timeupdate", () => {
 progress.addEventListener("input", () => {
   audio.currentTime = (progress.value / 100) * audio.duration;
 });
+
+
+
+let views = async () => {
+  try {
+    const res = await fetch('/api/views');
+    const data = await res.json();
+    console.log(data);
+    viewsNumber.innerHTML = data.count;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+views();

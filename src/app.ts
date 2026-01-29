@@ -1,16 +1,26 @@
 import express, { Request, Response } from "express";
 import postRoute from "./routes/postRoute";
 import redirectRoute from "./routes/redirectRoute";
+import api from "./routes/api";
+import cookieParser from 'cookie-parser';
 import path from "path";
+
+
 const app = express();
+
+
 // middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.set("view engine", "ejs");
 app.set("views", "../views");
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-// routes
-app.use("/ere", postRoute);
 
+// routes
+
+app.use('/api/views', api);
+app.use("/ere", postRoute);
 app.use(redirectRoute);
+
 export default app;
